@@ -7,8 +7,8 @@ every software component should have one and only one responsibility
 
 ### Responsibility - Cohesion 
 Cohesion is the degree to which the various parts of a software component are related
-- low cohesion methods, or not that closed related function should be abstact out
-- if we see the internal methods can be reused somewhere else, it means lwo cohesion
+- low cohesion methods, or not that closed related function should be abstacted out to another class
+- if we see the internal methods can be reused somewhere else, it means low cohesion
 
 ```
 public class Square {
