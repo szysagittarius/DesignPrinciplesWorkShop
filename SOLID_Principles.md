@@ -1,16 +1,12 @@
 # SOLID Principles
 
-
-## SOLID Principles 
-
 ## Single Responsibility 
 every software component should have one and only one responsibility
 - component can be a class, a methods or a module
 ## 
 
-### Cohesion 
+### Responsibility - Cohesion 
 Cohesion is the degree to which the various parts of a software component are related
-
 
 ```
 public class Square {
@@ -40,7 +36,7 @@ public class Square {
 
 ```
 
-refactor
+Refactor
 ```
 public class Square {
     int side = 5;
@@ -73,7 +69,7 @@ public class SquareUI {
 
 ```
 
-### Coupling
+### Responsibility - Coupling
 Coupling is defined as the level of interdependency between various software components
 
 ```
@@ -107,7 +103,7 @@ public class Student {
     }
 }
 ```
-refactor
+Refactor
 ```
 public class Student {
     private String studentId;
@@ -153,7 +149,7 @@ public class StudentRepository {
 ```
 
 
-## Responsibility related
+## Responsibility - Summary
 Cohesion
 
     Text: "Cohesion is the degree to which the various parts of a software component are related."
@@ -169,7 +165,6 @@ Coupling
 
 Every software component should have one and only one responsibility reason to change
 
-### sample code
 ```
 public class Student {
     private String studentId;
