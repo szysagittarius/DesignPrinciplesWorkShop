@@ -7,6 +7,8 @@ every software component should have one and only one responsibility
 
 ### Responsibility - Cohesion 
 Cohesion is the degree to which the various parts of a software component are related
+- low cohesion methods, or not that closed related function should be abstact out
+- if we see the internal methods can be reused somewhere else, it means lwo cohesion
 
 ```
 public class Square {
@@ -163,7 +165,7 @@ Coupling
 
 ## Reason to change
 
-Every software component should have one and only one responsibility reason to change
+Every software component should have one and only one responsibility/reason to change
 
 ```
 public class Student {
@@ -199,7 +201,7 @@ public class Student {
 # Reasons to change
 
 1. A change in the student id format.
-2. A change in the student name format.
+2. A change in the student address.
 3. A change in the database backend, as advised by the tech team.
 ```
 
