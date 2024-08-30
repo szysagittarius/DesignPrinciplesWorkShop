@@ -26,8 +26,9 @@ public class HealthInsuranceCustomerProfile {
 }
 
 ```
-> **Warning:**
-> Code always should be ready to change. A wave of changes are incoming... !
+<div style="padding: 10px; border-left: 5px solid #FFCC00; background-color: #fff4e5; margin-bottom: 10px;">
+  <strong>Warning:</strong> <strong>Code always should be ready to change. A wave of changes are incoming... !</strong>
+</div>
 
 ```
 One State Insurance - For all your health and vehicle insurance needs!
@@ -99,8 +100,9 @@ We will need to add code again to this Calculator class. So, why is this not goo
 which goes against our Open Closed Principle. The existing code is supposed to be closed for modification.
 
 
-> **Tip:**
-> Lets refactor our design and see if we can solve this problem.
+<div style="padding: 10px; border-left: 5px solid #217346; background-color: #e6f5ea; margin-bottom: 10px;">
+  <strong>Tip:</strong> Lets refactor our design and see if we can solve this problem.
+</div>
 
 ```
 public class InsurancePremiumDiscountCalculator {
@@ -149,13 +151,15 @@ Now in the Calculator class, we'll change the method argument.
 - Instead of a HealthInsuranceCustomerProfile, we will make it CustomerProfile.
 - We are done.
 
-> **Tip:**
-> On the face of it, it might look like we had to do more work this time. 
-> But the beauty of this design lies in how it handles future extensions. 
-> - Assume, One State enters home insurance business as well. They change their tagline again. So we will need to create a HomeInsuranceCustomerProfile object.
-> - We make it implement the common CustomerProfile interface.
-> - And then? What else do we need to do? Nothing, we do NOT need to touch the Calculator class at all.
-
+<div style="padding: 10px; border-left: 5px solid #217346; background-color: #e6f5ea; margin-bottom: 10px;">
+  <strong>Tip:</strong> On the face of it, it might look like we had to do more work this time. 
+  But the beauty of this design lies in how it handles future extensions.
+  <ul>
+    <li>Assume, One State enters the home insurance business as well. They change their tagline again. So we will need to create a HomeInsuranceCustomerProfile object.</li>
+    <li>We make it implement the common CustomerProfile interface.</li>
+    <li>And then? What else do we need to do? Nothing, we do NOT need to touch the Calculator class at all.</li>
+  </ul>
+</div>
 
 All we did is : add a new class by implementing an existing interface.
 Neither the calculator class, nor the interface nor any of the existing classes had to be modified.
