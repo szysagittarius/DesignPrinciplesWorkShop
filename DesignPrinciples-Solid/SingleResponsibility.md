@@ -1,9 +1,7 @@
-# SOLID Principles
 
 ## Single Responsibility 
 every software component should have one and only one responsibility
 - component can be a class, a methods or a module
-## 
 
 ### Responsibility - Cohesion 
 Cohesion is the degree to which the various parts of a software component are related
@@ -253,7 +251,4 @@ Reasons to Change for StudentRepository
 - A change in the database backend, as advised by the technical team.
 
 ```
-
-
-
 
