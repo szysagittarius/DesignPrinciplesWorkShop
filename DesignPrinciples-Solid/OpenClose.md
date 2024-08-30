@@ -54,17 +54,15 @@ public class VehicleInsuranceCustomerProfile {
 
 ```
 
-::: warning
-*here be dragons*
-:::
+> **Note:**
+> So, are we done? No, this is where the problems begin.
+> - We now have to modify the Calculator class, because the calculate method currently takes in a healthInsuranceCustomerProfile object.
+> - We want it to take in a VehicleInsuranceCustomerProfile object as well. 
 
-So, are we done? No, this is where the problems begin.
-- We now have to modify the Calculator class, because the calculate method currently takes in a healthInsuranceCustomerProfile object.
-- We want it to take in a VehicleInsuranceCustomerProfile object as well.
-=> The only way out is to add a new overloaded method which takes in a VehicleInsuranceCustomerProfile object.
+The only way out is to add a new overloaded method which takes in a VehicleInsuranceCustomerProfile object. 
 
+Code will become like this - we modify 2 classes in order to implment our logic.
 
-Code will become like this - we modify a lot of classes in order to implment our logic.
 ```
 public class InsurancePremiumDiscountCalculator {
     public int calculatePremiumDiscountPercent(HealthInsuranceCustomerProfile customer) {
@@ -94,14 +92,16 @@ public class VehicleInsuranceCustomerProfile {
     }
 }
 ```
-This is just the beginning. What if we want to handle home insurance too?
+> **Note:**
+> This is just the beginning. 
+> - What if we want to handle home insurance too? 
 We will need to add code again to this Calculator class. So, why is this not good
-
-Because in order to add a new feature, we are having to touch existing code,
+> - Because in order to add a new feature, we are having to touch existing code,
 which goes against our Open Closed Principle. The existing code is supposed to be closed for modification.
 
-=>
-Lets refactor our design and see if we can solve this problem.
+
+> **Tip:**
+> Lets refactor our design and see if we can solve this problem.
 
 ```
 public class InsurancePremiumDiscountCalculator {
@@ -140,21 +140,22 @@ public class HomeInsuranceCustomerProfile implements CustomerProfile {
 
 ```
 
-We will revert our Calculator class back. 
-
-We will create a new interface named CustomerProfile.
-- The interface defines only one method: isLoyalCustomer
-- We will make both our customerprofile classes implement this common interface.
+> **Note:**
+> We will revert our Calculator class back. 
+> We will create a new interface named CustomerProfile.
+> - The interface defines only one method: isLoyalCustomer
+> - We will make both our customerprofile classes implement this common interface.
 
 Now in the Calculator class, we'll change the method argument.
 - Instead of a HealthInsuranceCustomerProfile, we will make it CustomerProfile.
 - We are done.
 
-On the face of it, it might look like we had to do more work this time. 
-But the beauty of this design lies in how it handles future extensions. 
-- Assume, One State enters home insurance business as well. They change their tagline again. So we will need to create a HomeInsuranceCustomerProfile object.
-- We make it implement the common CustomerProfile interface.
-- And then? What else do we need to do? Nothing, we do NOT need to touch the Calculator class at all.
+> **Tip:**
+> On the face of it, it might look like we had to do more work this time. 
+> But the beauty of this design lies in how it handles future extensions. 
+> - Assume, One State enters home insurance business as well. They change their tagline again. So we will need to create a HomeInsuranceCustomerProfile object.
+> - We make it implement the common CustomerProfile interface.
+> - And then? What else do we need to do? Nothing, we do NOT need to touch the Calculator class at all.
 
 
 All we did is : add a new class by implementing an existing interface.
@@ -176,10 +177,10 @@ What we saw now was an example of the Open Closed Principle. When we started out
 ## A word of caution
 
 1. Do not follow the open Closed Principle blindly.
-- You will end up with a huge number of classes that can complicate your overall design.
-- e.g. if you were to fix a bug, and if you think existing code has to be modified in order to fix the bug effectively, then go do it.
+   - You will end up with a huge number of classes that can complicate your overall design.
+   - e.g. if you were to fix a bug, and if you think existing code has to be modified in order to fix the bug effectively, then go do it.
     
 2. You will end up with a huge number of classes that can complicate your overall design.
-- But if you see repeated occurences of certain kinds of bugs, and you think that revamping your design can help reduce it, then by all means, do it.
+   - But if you see repeated occurences of certain kinds of bugs, and you think that revamping your design can help reduce it, then by all means, do it.
 
 3. Make a subjective, rather than an objective decision.
