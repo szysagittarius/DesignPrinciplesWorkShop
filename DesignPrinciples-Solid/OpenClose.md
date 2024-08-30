@@ -26,7 +26,8 @@ public class HealthInsuranceCustomerProfile {
 }
 
 ```
-Code always should be ready to change. A wave of changes are incoming... !
+> **Warning:**
+> Code always should be ready to change. A wave of changes are incoming... !
 
 ```
 One State Insurance - For all your health and vehicle insurance needs!
@@ -53,11 +54,9 @@ public class VehicleInsuranceCustomerProfile {
 }
 
 ```
-
-> **Note:**
-> So, are we done? No, this is where the problems begin.
-> - We now have to modify the Calculator class, because the calculate method currently takes in a healthInsuranceCustomerProfile object.
-> - We want it to take in a VehicleInsuranceCustomerProfile object as well. 
+So, are we done? No, this is where the problems begin.
+- We now have to modify the Calculator class, because the calculate method currently takes in a healthInsuranceCustomerProfile object.
+- We want it to take in a VehicleInsuranceCustomerProfile object as well. 
 
 The only way out is to add a new overloaded method which takes in a VehicleInsuranceCustomerProfile object. 
 
@@ -92,11 +91,11 @@ public class VehicleInsuranceCustomerProfile {
     }
 }
 ```
-> **Note:**
-> This is just the beginning. 
-> - What if we want to handle home insurance too? 
+
+This is just the beginning. 
+- What if we want to handle home insurance too? 
 We will need to add code again to this Calculator class. So, why is this not good
-> - Because in order to add a new feature, we are having to touch existing code,
+- Because in order to add a new feature, we are having to touch existing code,
 which goes against our Open Closed Principle. The existing code is supposed to be closed for modification.
 
 
@@ -140,11 +139,11 @@ public class HomeInsuranceCustomerProfile implements CustomerProfile {
 
 ```
 
-> **Note:**
-> We will revert our Calculator class back. 
-> We will create a new interface named CustomerProfile.
-> - The interface defines only one method: isLoyalCustomer
-> - We will make both our customerprofile classes implement this common interface.
+
+We will revert our Calculator class back. 
+We will create a new interface named CustomerProfile.
+- The interface defines only one method: isLoyalCustomer
+- We will make both our customerprofile classes implement this common interface.
 
 Now in the Calculator class, we'll change the method argument.
 - Instead of a HealthInsuranceCustomerProfile, we will make it CustomerProfile.
