@@ -13,6 +13,9 @@ Liskov Substitution Principle (LSP):
 
 
 Example: Guns and Toy Guns
+![alt text](Images/Ak47.png)
+![alt text](Images/DesertEagle.png)
+![alt text](Images/WaterGun.png)
 - We can create a class hierarchy involving a base class Gun and two types of actual guns (AK-47 and Desert Eagle). We will also include a ToyGun to demonstrate a violation of the LSP.
 
 ```csharp
@@ -55,10 +58,6 @@ public class ToyGun : Gun
 //The ToyGun also inherits from Gun and overrides the Shoot method, but instead of firing bullets, it simply clicks. While the toy gun technically satisfies the "is-a" relationship, it violates the Liskov Substitution Principle because a ToyGun cannot function in the same way as a Gun.
 ```
 ### Demonstrating the Violation of LSP:
-Guns
-![alt text](Images/Ak47.png)
-![alt text](Images/DesertEagle.png)
-![alt text](Images/WaterGun.png)
 ```csharp
 public void FireAllGuns(Gun gun)
 {
